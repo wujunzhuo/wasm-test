@@ -15,7 +15,7 @@ func main() {
 	var wasi = vm.GetImportObject(wasmedge.WASI)
 	wasi.InitWasi([]string{}, os.Environ(), []string{".:."})
 
-	fmt.Println(" ### Loading wasm file")
+	fmt.Println(" ### Loading wasm file: ", os.Args[1])
 	vm.LoadWasmFile(os.Args[1])
 	vm.Validate()
 	vm.Instantiate()
