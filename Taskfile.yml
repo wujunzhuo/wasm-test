@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: "3"
+
+output: "prefixed"
+
+tasks:
+  all:
+    deps: [run, sum-go, sum-rust]
+
+  run:
+    dir: "run"
+    cmds:
+      - "go build"
+
+  sum-go:
+    dir: "example/go/sum"
+    cmds:
+      - "tinygo build -o sum.wasm -target wasi ."
+
+  sum-rust:
+    dir: "example/rust/sum"
+    cmds:
+      - "rustwasmc build"
