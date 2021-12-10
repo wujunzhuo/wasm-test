@@ -9,7 +9,6 @@ tasks:
     deps: [run, sum-go, sum-rust]
 
   run:
-    dir: "run"
     cmds:
       - "go build"
 
